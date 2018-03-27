@@ -14,6 +14,7 @@
     <ClCompile Include="AccelerationInputComponent.cpp" />
     <ClCompile Include="BasicKBCtrlComponent.cpp" />
     <ClCompile Include="BasicMotionPhysics.cpp" />
+    <ClCompile Include="BulletsManager.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="DemoActor.cpp" />
     <ClCompile Include="ExampleGame.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="AccelerationInputComponent.h" />
     <ClInclude Include="BasicKBCtrlComponent.h" />
     <ClInclude Include="BasicMotionPhysics.h" />
+    <ClInclude Include="BulletsManager.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="DemoActor.h" />
     <ClInclude Include="ExampleGame.h" />
