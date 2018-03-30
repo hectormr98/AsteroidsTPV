@@ -7,6 +7,8 @@
 #include "ImageRenderer.h"
 #include "AccelerationInputComponent.h"
 
+#include"StarWarsBulletManager.h"
+
 ExampleGame::ExampleGame() :
 		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
 	initGame();
@@ -67,6 +69,12 @@ void ExampleGame::initGame() {
 	airplanes_->addInputComponent(inputComp_);
 	airplanes_->addPhysicsComponent(physicsComp_);
 	actors_.push_back(airplanes_);
+
+	StarWarsBulletManager* illo = new StarWarsBulletManager(this);
+	actors_.push_back(illo);
+	illo->Shoot();
+	illo->Shoot();
+
 }
 
 void ExampleGame::closeGame() {
