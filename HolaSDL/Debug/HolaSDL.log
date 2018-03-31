@@ -1,8 +1,3 @@
-﻿  StarWarsBulletManager.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\starwarsbulletmanager.cpp(21): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\starwarsbulletmanager.cpp(33): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\starwarsbulletmanager.cpp(43): warning C4018: '<': no coinciden signed/unsigned
-  ExampleGame.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\accelerationinputcomponent.h(8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Generando código...
+﻿  GunInputComponent.cpp
+     Creando biblioteca C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.lib y objeto C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exp
   HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe
