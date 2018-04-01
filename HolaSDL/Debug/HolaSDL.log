@@ -1,3 +1,4 @@
-﻿  GunInputComponent.cpp
-     Creando biblioteca C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.lib y objeto C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exp
+﻿  StarWarsBulletManager.cpp
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\starwarsbulletmanager.cpp(35): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\starwarsbulletmanager.cpp(45): warning C4018: '<': no coinciden signed/unsigned
   HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe

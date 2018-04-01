@@ -10,6 +10,6 @@ protected:
 public:
 	GunInputComponent(BulletsManager* bm, SDL_Keycode s);
 	~GunInputComponent();
-	virtual void handleInput(Uint32 time, const SDL_Event& e);
+	virtual void handleInput(GameObject* o,Uint32 time, const SDL_Event& e);
 };
 

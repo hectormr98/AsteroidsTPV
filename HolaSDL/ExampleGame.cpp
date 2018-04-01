@@ -8,6 +8,7 @@
 #include "AccelerationInputComponent.h"
 
 #include"StarWarsBulletManager.h"
+#include"GunInputComponent.h"
 
 ExampleGame::ExampleGame() :
 		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
@@ -25,7 +26,7 @@ void ExampleGame::initGame() {
 	SDL_ShowCursor(0);
 
 	// normal game object
-	demoObj_ = new DemoActor(this);
+	/*demoObj_ = new DemoActor(this);
 
 	//
 
@@ -34,7 +35,7 @@ void ExampleGame::initGame() {
 	demoObj_->setPosition(
 			Vector2D(getWindowWidth() / 2 - 5, getWindowHeight() / 2 - 5));
 	demoObj_->setVelocity(Vector2D(1, 1));
-	actors_.push_back(demoObj_);
+	actors_.push_back(demoObj_);*/
 	airplanes_ = new GameComponent(this);
 	airplanes_->setWidth(100);
 	airplanes_->setHeight(100);
@@ -46,7 +47,7 @@ void ExampleGame::initGame() {
 	airplanes_->addRenderComponent(renderComp_);
 
 	// game object based on component
-	demoComp_ = new GameComponent(this);
+	//demoComp_ = new GameComponent(this);
 	/*inputComp_ = new BasicKBCtrlComponent(SDLK_a, SDLK_d, SDLK_w, SDLK_s,
 			SDLK_z, 5, SDLK_q, SDLK_e);*/
 	inputComp_ = new AccelerationInputComponent(5, SDLK_a, SDLK_d, SDLK_w, SDLK_s);
@@ -55,25 +56,31 @@ void ExampleGame::initGame() {
 	// choose either the filled rectangle or the image renderer
 	//
 	//	renderComp_ = new FillRectRenderer( { COLOR(0x11ff22ff) });
-	renderComp_ = new ImageRenderer( getResources()->getImageTexture(Resources::Star));
+	//renderComp_ = new ImageRenderer( getResources()->getImageTexture(Resources::Star));
 
-	demoComp_->setWidth(50);
+	/*demoComp_->setWidth(50);
 	demoComp_->setHeight(50);
 	demoComp_->setPosition(Vector2D(100, 100));
 	demoComp_->setVelocity(Vector2D(1, 0));
 	demoComp_->addInputComponent(inputComp_);
 	demoComp_->addPhysicsComponent(physicsComp_);
 	demoComp_->addRenderComponent(renderComp_);
-	actors_.push_back(demoComp_);
+	actors_.push_back(demoComp_);*/
 
 	airplanes_->addInputComponent(inputComp_);
-	airplanes_->addPhysicsComponent(physicsComp_);
-	actors_.push_back(airplanes_);
 
 	StarWarsBulletManager* illo = new StarWarsBulletManager(this);
 	actors_.push_back(illo);
+	inputComp_ = new GunInputComponent(illo, SDLK_SPACE);
+	airplanes_->addInputComponent(inputComp_);
+
+	airplanes_->addPhysicsComponent(physicsComp_);
+	actors_.push_back(airplanes_);
+
+	/*StarWarsBulletManager* illo = new StarWarsBulletManager(this);
+	actors_.push_back(illo);
 	illo->Shoot();
-	illo->Shoot();
+	illo->Shoot();*/
 
 }
 

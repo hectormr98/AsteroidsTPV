@@ -21,7 +21,10 @@ void StarWarsBulletManager::Shoot(Vector2D IniPos, Vector2D IniDir, Vector2D Ini
 	comp->setHeight(5);
 	comp->setWidth(5);
 
-	comp->setVelocity(IniVel);
+	Vector2D aux = IniVel;
+	aux.setX(-IniVel.getX());
+
+	comp->setVelocity(aux);
 	comp->setDirection(IniDir);
 	comp->setPosition(IniPos);
 
