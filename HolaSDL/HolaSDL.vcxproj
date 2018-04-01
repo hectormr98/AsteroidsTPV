@@ -11,13 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccelerationComponent.cpp" />
     <ClCompile Include="AccelerationInputComponent.cpp" />
+    <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="AsteroidManager.cpp" />
     <ClCompile Include="BasicKBCtrlComponent.cpp" />
     <ClCompile Include="BasicMotionPhysics.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletsManager.cpp" />
+    <ClCompile Include="CircularMotionPhysics.cpp" />
     <ClCompile Include="Collisions.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="DemoActor.cpp" />
     <ClCompile Include="ExampleGame.cpp" />
+    <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FillRectRenderer.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameComponent.cpp" />
@@ -27,9 +34,12 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Music.cpp" />
+    <ClCompile Include="Observable.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="RotationPhysics.cpp" />
     <ClCompile Include="SDLGame.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="SoundEffect.cpp" />
@@ -40,13 +50,20 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccelerationComponent.h" />
     <ClInclude Include="AccelerationInputComponent.h" />
+    <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="AsteroidManager.h" />
     <ClInclude Include="BasicKBCtrlComponent.h" />
     <ClInclude Include="BasicMotionPhysics.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletsManager.h" />
+    <ClInclude Include="CircularMotionPhysics.h" />
     <ClInclude Include="Collisions.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="DemoActor.h" />
     <ClInclude Include="ExampleGame.h" />
+    <ClInclude Include="Fighter.h" />
     <ClInclude Include="FillRectRenderer.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GameComponent.h" />
@@ -54,10 +71,14 @@
     <ClInclude Include="GunInputComponent.h" />
     <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="Messages.h" />
     <ClInclude Include="Music.h" />
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Resources.h" />
+    <ClInclude Include="RotationPhysics.h" />
     <ClInclude Include="SDLGame.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="SkeletonRenderer.h" />

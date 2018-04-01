@@ -7,6 +7,9 @@
 #include "ImageRenderer.h"
 #include "AccelerationInputComponent.h"
 
+#include"CircularMotionPhysics.h"
+#include"RotationPhysics.h"
+
 #include"StarWarsBulletManager.h"
 #include"GunInputComponent.h"
 
@@ -75,6 +78,12 @@ void ExampleGame::initGame() {
 	airplanes_->addInputComponent(inputComp_);
 
 	airplanes_->addPhysicsComponent(physicsComp_);
+
+	physicsComp_ = new CircularMotionPhysics();
+	airplanes_->addPhysicsComponent(physicsComp_);
+	/*physicsComp_ = new RotationPhysics(5);
+	airplanes_->addPhysicsComponent(physicsComp_);*/
+
 	actors_.push_back(airplanes_);
 
 	/*StarWarsBulletManager* illo = new StarWarsBulletManager(this);
