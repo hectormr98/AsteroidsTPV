@@ -32,8 +32,12 @@ void AccelerationInputComponent::handleInput(GameObject* o, uint32_t Time,const 
 		else if (e.key.keysym.sym == deccelerate_) {
 			if(decceleration>0)
 			decceleration -= 0.01f;
+			aux.set(0, 0);
 		}
-		else InputComponent::handleInput(o, Time, e);
+		else {
+			aux.set(0, 0);
+		}
+		InputComponent::handleInput(o, Time, e);
 
 		velocity = o->getVelocity() + aux*vel;
 		o->setVelocity(velocity*decceleration);

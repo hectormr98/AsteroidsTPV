@@ -37,8 +37,8 @@ void ExampleGame::initGame() {
 	demoObj_->setVelocity(Vector2D(1, 1));
 	actors_.push_back(demoObj_);*/
 	airplanes_ = new GameComponent(this);
-	airplanes_->setWidth(100);
-	airplanes_->setHeight(100);
+	airplanes_->setWidth(50);
+	airplanes_->setHeight(50);
 	airplanes_->setPosition(Vector2D(getWindowWidth() / 3, getWindowHeight() / 4 + getWindowHeight()/2));
 	airplanes_->setVelocity(Vector2D(1, 0));
 	airplanes_->setDirection(Vector2D(0, -1));
@@ -71,7 +71,7 @@ void ExampleGame::initGame() {
 
 	StarWarsBulletManager* illo = new StarWarsBulletManager(this);
 	actors_.push_back(illo);
-	inputComp_ = new GunInputComponent(illo, SDLK_SPACE);
+	inputComp_ = new GunInputComponent(illo, SDLK_SPACE, 5, 3);
 	airplanes_->addInputComponent(inputComp_);
 
 	airplanes_->addPhysicsComponent(physicsComp_);
