@@ -1,10 +1,10 @@
 #include "AsteroidManager.h"
 
-
+#include<ctime>
 
 AsteroidManager::AsteroidManager(SDLGame* game): GameObject(game)
 {
-	astroidImage_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Airplanes));
+	astroidImage_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Astroid));
 	circularPhysics_ = CircularMotionPhysics();
 	rotationPhysics_ = RotationPhysics(2);
 	bm = BasicMotionPhysics();
@@ -47,7 +47,7 @@ void AsteroidManager::receive(Message* msg) {
 
 Asteroid* AsteroidManager::getAsteroid() {
 	int i = 0;
-	while (i < astroids_.size() && !astroids_[i]->isActive())
+	while (i < astroids_.size() && astroids_[i]->isActive())
 		i++;
 	if (i < astroids_.size()) {
 		astroids_[i]->setActive(true);
@@ -73,12 +73,29 @@ void AsteroidManager::initAsteroids() {
 			astroids_[i]->setActive(false);
 	}
 	int aux = rand() % 6 + 5;
+
 	for (int i = 0; i < aux; i++) {
-		int randPos = rand() % 2;
+
+		int randPos = rand() % 4;
 		if (i < astroids_.size()) {
 			//random value in the limits of the window
-			astroids_[i]->setPosition(Vector2D(randPos == 0 ? rand() % game_->getWindowWidth() : rand() % 50
-				, randPos == 1 ? rand() % 50 : rand() % game_->getWindowHeight()));
+			switch (randPos)
+			{
+			case 0:
+				astroids_[i]->setPosition(Vector2D(rand() % game_->getWindowWidth(), rand() % 50));
+				break;
+			case 1:
+				astroids_[i]->setPosition(Vector2D(rand() % 50, rand() % game_->getWindowHeight()));
+				break;
+			case 2:
+				astroids_[i]->setPosition(Vector2D(rand() % game_->getWindowWidth(), rand() % 50 - 100 + game_->getWindowHeight()));
+				break;
+			case 3:
+				astroids_[i]->setPosition(Vector2D(rand() % 50 - 100 + game_->getWindowWidth(), rand() % game_->getWindowHeight()));
+				break;
+			default:
+				break;
+			}
 			astroids_[i]->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
 			astroids_[i]->setVelocity(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
 			int auxGen = rand() % 3 + 1;
@@ -88,11 +105,27 @@ void AsteroidManager::initAsteroids() {
 		}
 		else {
 			Asteroid* st = getAsteroid();
-			//astroids_.push_back(getAsteroid());
-			st->setPosition(Vector2D(randPos == 0 ? rand() % game_->getWindowWidth() : rand() % 50
-				, randPos == 1 ? rand() % 50 : rand() % game_->getWindowHeight()));
-			st->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
-			st->setVelocity(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
+			switch (randPos)
+			{
+			case 0:
+				st->setPosition(Vector2D(rand() % game_->getWindowWidth(), rand() % 50));
+				break;
+			case 1:
+				st->setPosition(Vector2D(rand() % 50, rand() % game_->getWindowHeight()));
+				break;
+			case 2:
+				st->setPosition(Vector2D(rand() % game_->getWindowWidth(), rand() % 50 - 100 + game_->getWindowHeight()));
+				break;
+			case 3:
+				st->setPosition(Vector2D(rand() % 50 - 100 + game_->getWindowWidth(), rand() % game_->getWindowHeight()));
+				break;
+			default:
+				break;
+			}
+
+			st->setDirection(Vector2D(((double)(rand() % 200) - 100) / 100, ((double)(rand() % 200) - 100) / 100));
+			st->setVelocity(Vector2D(((double)(rand() % 200) - 100) / 100, ((double)(rand() % 200) - 100) / 100));
+
 			int auxGen = rand() % 3 + 1;
 			st->setGeneration(auxGen);
 			st->setHeight(auxGen * 15 + 10);

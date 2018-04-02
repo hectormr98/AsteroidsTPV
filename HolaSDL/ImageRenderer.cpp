@@ -13,9 +13,10 @@ void ImageRenderer::render(GameObject* o, Uint32 time) {
 			RECT(o->getPosition().getX(), o->getPosition().getY(),
 					o->getWidth(), o->getHeight());
 	SDL_Rect* srcRect = new SDL_Rect();
-	srcRect->x = 796;
-	srcRect->y = 104;
-	srcRect->w = 340;
-	srcRect->h = 210;
+	/*srcRect->x = 796;
+	srcRect->y = 104;*/
+	srcRect->x = srcRect->y = 0;
+	srcRect->w = image_->getWidth();
+	srcRect->h = image_->getHeight();
 	image_->render(o->getGame()->getRenderer(), rect, angle, srcRect);	
 }
