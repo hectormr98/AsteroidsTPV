@@ -23,11 +23,12 @@ private:
 	vector<Asteroid*> astroids_;
 
 	int numOfAsteroids_;
-	//ImageRenderer astroidImage_ = nullptr;
-	//CircularMotionPhysics circularPhysics_;
-	//RotationPhysics rotationPhysics_;
+	ImageRenderer astroidImage_ = nullptr;
+	CircularMotionPhysics circularPhysics_;
+	RotationPhysics rotationPhysics_ = RotationPhysics(2);
 
 	Asteroid* getAsteroid();	
-	//void initAsteroids();
+	void initAsteroids();
+
 };
 

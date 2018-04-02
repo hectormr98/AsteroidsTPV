@@ -1,5 +1,6 @@
 ﻿  AsteroidManager.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(28): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(30): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(38): warning C4715: 'AsteroidManager::getAsteroid': no todas las rutas de acceso de control devuelven un valor
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(45): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(47): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(68): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(75): warning C4018: '<': no coinciden signed/unsigned
   HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe
