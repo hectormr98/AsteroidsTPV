@@ -25,17 +25,23 @@ void CollisionsManager::update(Uint32 time) {
 
 	//fighter with asteroids
 	for (int i = 0; i < asteroids.size(); i++) {
-		if (Collisions::collidesWithRotation(fighter, asteroids[i]))
-			//send message
-			;
+		if (asteroids[i]->isActive()) {
+			if (Collisions::collidesWithRotation(fighter, asteroids[i])) {
+				Message* mensaje = new AstroidFighterCollision(asteroids[i], fighter);
+				send(mensaje);
+			}
+		}
 	}
-
 	//bullets with asteroids
 	for (int i = 0; i < asteroids.size(); i++) {
 		for (int j = 0; j < bullets.size(); j++) {
-			if (Collisions::collidesWithRotation(bullets[j], asteroids[i]))
-				//send message
-				;
+			if (bullets[j]->isActive() && asteroids[i]->isActive()) {
+				if (Collisions::collidesWithRotation(bullets[j], asteroids[i])) {
+					Message* mensaje = new BulletAstroidCollision(bullets[j], asteroids[i]);
+					send(mensaje);
+				}
+			}
+				
 		}
 	}
 }

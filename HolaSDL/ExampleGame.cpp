@@ -1,6 +1,6 @@
 #include "ExampleGame.h"
 #include "DemoActor.h"
-#include "Collisions.h"
+//#include "Collisions.h"
 #include "BasicKBCtrlComponent.h"
 #include "BasicMotionPhysics.h"
 #include "FillRectRenderer.h"
@@ -15,6 +15,9 @@
 #include"GunInputComponent.h"
 #include "FightersManager.h"
 #include"AsteroidManager.h"
+#include"CollisionsManager.h"
+#include"GameManager.h"
+
 
 ExampleGame::ExampleGame() :
 		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
@@ -30,14 +33,29 @@ void ExampleGame::initGame() {
 
 	// hide cursor
 	SDL_ShowCursor(0);
-	StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
-	actors_.push_back(bulletManager);
-	FightersManager* fighter = new FightersManager(this, bulletManager);
-	actors_.push_back(fighter);
-	AsteroidManager* asteroids = new AsteroidManager(this);
-	actors_.push_back(asteroids);
-	
+	GameManager* GM = new GameManager(this);
 
+	StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
+
+	FightersManager* fighter = new FightersManager(this, bulletManager);
+
+	AsteroidManager* asteroids = new AsteroidManager(this);
+
+	CollisionsManager* coll = new CollisionsManager(this, asteroids, bulletManager, fighter);
+	coll->registerObserver(GM);
+	coll->registerObserver(asteroids);
+	coll->registerObserver(bulletManager);
+	coll->registerObserver(fighter);
+
+
+	GM->registerObserver(bulletManager);
+	GM->registerObserver(fighter);
+
+	actors_.push_back(coll);
+	actors_.push_back(bulletManager);
+	actors_.push_back(fighter);
+	actors_.push_back(asteroids);
+	actors_.push_back(GM);
 	/*airplanes_ = new GameComponent(this);
 	airplanes_->setWidth(50);
 	airplanes_->setHeight(50);

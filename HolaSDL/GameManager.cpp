@@ -1,9 +1,8 @@
 #include "GameManager.h"
 
-
-
 GameManager::GameManager(SDLGame* game) : GameObject(game)
 {
+	
 }
 
 
@@ -32,7 +31,14 @@ void GameManager::setRunning(bool r) {
 }
 
 void GameManager::setBadge(bool b) {
-
+	if (b) {
+		badge.start(10);
+		send(&Message(BADGE_ON));
+	}
+	else {
+		send(&Message(BADGE_OFF));
+		badgeCounter = 0;
+	}
 }
 
 void GameManager::receive(Message* msg) {
@@ -40,10 +46,15 @@ void GameManager::receive(Message* msg) {
 	switch (msg->id_)
 	{
 	case ASTROID_FIGHTER_COLLISION:
-
+		vidas--;
+		if (vidas <= 0) {
+			send(&Message(ROUND_OVER));
+		}
 		break;
 	case BULLET_ASTROID_COLLISION:
-
+		badgeCounter++;
+		if(badgeCounter == 2)
+			setBadge(true);
 		break;
 	case NO_MORE_ATROIDS:
 
@@ -51,4 +62,8 @@ void GameManager::receive(Message* msg) {
 	default:
 		break;
 	}
+}
+
+void GameManager::update(Uint32 time) {
+	badge.update(this, time);
 }

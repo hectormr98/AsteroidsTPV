@@ -25,7 +25,7 @@ void AsteroidManager::receive(Message* msg) {
 			for (int i = 0; i < random; i++) {
 				Asteroid* son = getAsteroid();
 				son->setPosition(aux->getPosition());
-				son->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
+				son->setDirection(Vector2D(((double)(rand() % 200) - 100) / 100, ((double)(rand() % 200) - 100) / 100));
 				Vector2D auxVel = aux->getVelocity();
 				auxVel.rotate(30 * (i- random/2));
 				son->setVelocity(auxVel);

@@ -49,7 +49,8 @@ void FightersManager::update(Uint32 time)
 }
 void FightersManager::render(Uint32 time)
 {
-	fighter->render(time);
+	if(fighter->isActive())
+		fighter->render(time);
 }
 
 Fighter* FightersManager::getFighter()
