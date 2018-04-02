@@ -1,0 +1,8 @@
+alumnos: Alberto Casado Trapote y Héctor Marcos Rabadán
+
+INFO:
+No hemos terminado el apartado visual (badgeRenderer), ni algunas funcionalidades del
+GameManager ( Score, Representación visual de las vidas ) debido a la falta de tiempo, como
+le explicamos en el correo que le enviamos. Por favor, comuníquenos si hay algún problema, o si
+podemos optar por hacer algo (re-entrega de la práctica, algún ejercicio) para compensar que
+la práctica esté incompleta.

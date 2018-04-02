@@ -32,7 +32,7 @@ void GameManager::setRunning(bool r) {
 
 void GameManager::setBadge(bool b) {
 	if (b) {
-		badge.start(10);
+		badge.start(5);
 		send(&Message(BADGE_ON));
 	}
 	else {
@@ -49,6 +49,12 @@ void GameManager::receive(Message* msg) {
 		vidas--;
 		if (vidas <= 0) {
 			send(&Message(ROUND_OVER));
+		}
+		else {
+			system("cls");
+			cout << vidas << endl;
+			send(&Message(BADGE_OFF));
+			send(&Message(ROUND_START));
 		}
 		break;
 	case BULLET_ASTROID_COLLISION:

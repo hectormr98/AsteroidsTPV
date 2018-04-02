@@ -65,17 +65,21 @@ void FightersManager::receive(Message* msg) {
 	case ROUND_START:
 		fighter->setActive(true);
 		fighter->setPosition(Vector2D(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2));
+		fighter->setDirection(Vector2D(0, -1));
+		fighter->setVelocity(Vector2D(0, 0));
 			break;
 	case ROUND_OVER:
 		fighter->setActive(false);
 			break;
 	case BADGE_ON:
 		fighter->delInputComponent(gunComp1_);
+		fighter->delInputComponent(gunComp2_);
 		fighter->addInputComponent(gunComp2_);
 		//fighter->addRenderComponent(badgeRenderer);
 			break;
 	case BADGE_OFF:
 		fighter->delInputComponent(gunComp2_);
+		fighter->delInputComponent(gunComp1_);
 		fighter->addInputComponent(gunComp1_);
 		//fighter->delRenderComponent(badgeRenderer);
 			break;

@@ -50,6 +50,7 @@ void ExampleGame::initGame() {
 
 	GM->registerObserver(bulletManager);
 	GM->registerObserver(fighter);
+	GM->registerObserver(asteroids);
 
 	actors_.push_back(coll);
 	actors_.push_back(bulletManager);

@@ -1,12 +1,2 @@
 ﻿  GameManager.cpp
-  Generando código...
-  Compilando...
-  ScoreRenderer.cpp
-  GameMsgRenderer.cpp
-  GameCtrlInputComponent.cpp
-  ExampleGame.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\accelerationinputcomponent.h(8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  BadgeTimer.cpp
-  Generando código...
-     Creando biblioteca C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.lib y objeto C:\Users\hecto\UNIVERSIDAD\2║\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exp
   HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe

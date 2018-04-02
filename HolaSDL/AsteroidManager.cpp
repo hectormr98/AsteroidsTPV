@@ -95,12 +95,13 @@ void AsteroidManager::initAsteroids() {
 			default:
 				break;
 			}
-			astroids_[i]->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
-			astroids_[i]->setVelocity(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
+			astroids_[i]->setDirection(Vector2D(((double)(rand() % 200) - 100) / 100, ((double)(rand() % 200) - 100) / 100));
+			astroids_[i]->setVelocity(Vector2D(((double)(rand() % 200) - 100) / 100, ((double)(rand() % 200) - 100) / 100));
 			int auxGen = rand() % 3 + 1;
 			astroids_[i]->setGeneration(auxGen);
 			astroids_[i]->setHeight(auxGen * 15 + 10);
 			astroids_[i]->setWidth(auxGen * 15 + 10);
+			astroids_[i]->setActive(true);
 		}
 		else {
 			Asteroid* st = getAsteroid();
