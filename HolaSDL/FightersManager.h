@@ -6,6 +6,9 @@
 #include "AccelerationInputComponent.h"
 #include "GunInputComponent.h"
 #include"StarTrekBulletManager.h"
+
+
+#include"BasicMotionPhysics.h"
 //#include "RotationInputComp"
 //#include "BadgeRenderer"
 
@@ -23,6 +26,9 @@ public:
 private:
 	Fighter* fighter = nullptr;
 	CircularMotionPhysics circulrMotoionComp_;
+	
+	BasicMotionPhysics physics;
+
 	AccelerationInputComponent* accelerationComp_ = nullptr;
 	ImageRenderer renderComp_ = nullptr;
 	//RotationInputComp rotationComp_;

@@ -4,9 +4,11 @@
 
 AsteroidManager::AsteroidManager(SDLGame* game): GameObject(game)
 {
-	astroidImage_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Astroid));
+	astroidImage_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Airplanes));
 	circularPhysics_ = CircularMotionPhysics();
 	rotationPhysics_ = RotationPhysics(2);
+	bm = BasicMotionPhysics();
+	initAsteroids();
 }
 
 
@@ -58,6 +60,8 @@ Asteroid* AsteroidManager::getAsteroid() {
 		st->addPhysicsComponent(&circularPhysics_);
 		st->addRenderComponent(&astroidImage_);
 
+		st->addPhysicsComponent(&bm);
+
 		astroids_.push_back(st);
 		return st;
 	}
@@ -83,16 +87,33 @@ void AsteroidManager::initAsteroids() {
 			astroids_[i]->setWidth(auxGen * 15 + 10);
 		}
 		else {
-			astroids_.push_back(getAsteroid());
-			astroids_.back()->setPosition(Vector2D(randPos == 0 ? rand() % game_->getWindowWidth() : rand() % 50
+			Asteroid* st = getAsteroid();
+			//astroids_.push_back(getAsteroid());
+			st->setPosition(Vector2D(randPos == 0 ? rand() % game_->getWindowWidth() : rand() % 50
 				, randPos == 1 ? rand() % 50 : rand() % game_->getWindowHeight()));
-			astroids_.back()->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
-			astroids_.back()->setVelocity(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
+			st->setDirection(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
+			st->setVelocity(Vector2D((rand() % 200 - 100) / 100, (rand() % 200 - 100) / 100));
 			int auxGen = rand() % 3 + 1;
-			astroids_.back()->setGeneration(auxGen);
-			astroids_.back()->setHeight(auxGen * 15 + 10);
-			astroids_.back()->setWidth(auxGen * 15 + 10);
+			st->setGeneration(auxGen);
+			st->setHeight(auxGen * 15 + 10);
+			st->setWidth(auxGen * 15 + 10);
 		}
 	}
 	numOfAsteroids_ = astroids_.size();
+}
+
+void AsteroidManager::handleInput(Uint32 time, const SDL_Event& e) {}
+
+void AsteroidManager::update(Uint32 time) {
+	for (int i = 0; i < astroids_.size(); i++) {
+		if (astroids_[i]->isActive())
+			astroids_[i]->update(time);
+	}
+}
+
+void AsteroidManager::render(Uint32 time) {
+	for (int i = 0; i < astroids_.size(); i++) {
+		if (astroids_[i]->isActive())
+			astroids_[i]->render(time);
+	}
 }

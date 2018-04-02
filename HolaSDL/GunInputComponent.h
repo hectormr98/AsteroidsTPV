@@ -1,6 +1,7 @@
 #pragma once
 #include"InputComponent.h"
 #include"StarWarsBulletManager.h"
+#include"StarTrekBulletManager.h"
 #include "Timer.h"
 
 class GunInputComponent: public InputComponent

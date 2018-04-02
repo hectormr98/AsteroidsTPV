@@ -1,5 +1,8 @@
-﻿  FightersManager.cpp
-c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\accelerationinputcomponent.h(8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\fightersmanager.cpp(24): warning C4305: 'argumento': truncamiento de 'int' a 'Uint8'
-c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\fightersmanager.cpp(24): warning C4309: 'argumento': truncamiento de valor constante
-  HolaSDL.vcxproj -> C:\Users\pekev\OneDrive\Documentos\GitHub\AsteroidsTPV\bin\HolaSDLDebug.exe
+﻿  AsteroidManager.cpp
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(50): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(52): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(71): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(78): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(108): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(115): warning C4018: '<': no coinciden signed/unsigned
+  HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe

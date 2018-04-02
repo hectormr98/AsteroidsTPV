@@ -14,6 +14,7 @@
 #include"StarTrekBulletManager.h"
 #include"GunInputComponent.h"
 #include "FightersManager.h"
+#include"AsteroidManager.h"
 
 ExampleGame::ExampleGame() :
 		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
@@ -30,10 +31,13 @@ void ExampleGame::initGame() {
 	// hide cursor
 	SDL_ShowCursor(0);
 	StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
+	actors_.push_back(bulletManager);
 	FightersManager* fighter = new FightersManager(this, bulletManager);
 	actors_.push_back(fighter);
-	/*
-	airplanes_ = new GameComponent(this);
+	AsteroidManager* asteroids = new AsteroidManager(this);
+	actors_.push_back(asteroids);
+	
+	/*airplanes_ = new GameComponent(this);
 	airplanes_->setWidth(50);
 	airplanes_->setHeight(50);
 	airplanes_->setPosition(Vector2D(getWindowWidth() / 3, getWindowHeight() / 4 + getWindowHeight()/2));
@@ -63,8 +67,8 @@ void ExampleGame::initGame() {
 	airplanes_->addPhysicsComponent(physicsComp_);
 	//physicsComp_ = new RotationPhysics(5);
 	//airplanes_->addPhysicsComponent(physicsComp_);
-	actors_.push_back(airplanes_);
-	*/
+	actors_.push_back(airplanes_);*/
+	
 
 }
 
