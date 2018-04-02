@@ -12,5 +12,6 @@ public:
 	BulletsManager();
 	~BulletsManager();
 	virtual std::vector<Bullet*>& getBullets() = 0;
+	virtual void receive(Message* msg) {};
 };
 

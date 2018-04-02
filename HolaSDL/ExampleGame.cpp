@@ -11,7 +11,9 @@
 #include"RotationPhysics.h"
 
 #include"StarWarsBulletManager.h"
+#include"StarTrekBulletManager.h"
 #include"GunInputComponent.h"
+#include "FightersManager.h"
 
 ExampleGame::ExampleGame() :
 		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
@@ -27,18 +29,10 @@ void ExampleGame::initGame() {
 
 	// hide cursor
 	SDL_ShowCursor(0);
-
-	// normal game object
-	/*demoObj_ = new DemoActor(this);
-
-	//
-
-	demoObj_->setWidth(10);
-	demoObj_->setHeight(10);
-	demoObj_->setPosition(
-			Vector2D(getWindowWidth() / 2 - 5, getWindowHeight() / 2 - 5));
-	demoObj_->setVelocity(Vector2D(1, 1));
-	actors_.push_back(demoObj_);*/
+	StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
+	FightersManager* fighter = new FightersManager(this, bulletManager);
+	actors_.push_back(fighter);
+	/*
 	airplanes_ = new GameComponent(this);
 	airplanes_->setWidth(50);
 	airplanes_->setHeight(50);
@@ -48,11 +42,6 @@ void ExampleGame::initGame() {
 
 	renderComp_ = new ImageRenderer(getResources()->getImageTexture(Resources::Airplanes));
 	airplanes_->addRenderComponent(renderComp_);
-
-	// game object based on component
-	//demoComp_ = new GameComponent(this);
-	/*inputComp_ = new BasicKBCtrlComponent(SDLK_a, SDLK_d, SDLK_w, SDLK_s,
-			SDLK_z, 5, SDLK_q, SDLK_e);*/
 	inputComp_ = new AccelerationInputComponent(5, SDLK_a, SDLK_d, SDLK_w, SDLK_s);
 	physicsComp_ = new BasicMotionPhysics();
 
@@ -61,18 +50,9 @@ void ExampleGame::initGame() {
 	//	renderComp_ = new FillRectRenderer( { COLOR(0x11ff22ff) });
 	//renderComp_ = new ImageRenderer( getResources()->getImageTexture(Resources::Star));
 
-	/*demoComp_->setWidth(50);
-	demoComp_->setHeight(50);
-	demoComp_->setPosition(Vector2D(100, 100));
-	demoComp_->setVelocity(Vector2D(1, 0));
-	demoComp_->addInputComponent(inputComp_);
-	demoComp_->addPhysicsComponent(physicsComp_);
-	demoComp_->addRenderComponent(renderComp_);
-	actors_.push_back(demoComp_);*/
-
 	airplanes_->addInputComponent(inputComp_);
 
-	StarWarsBulletManager* illo = new StarWarsBulletManager(this);
+	StarTrekBulletManager* illo = new StarTrekBulletManager(this);
 	actors_.push_back(illo);
 	inputComp_ = new GunInputComponent(illo, SDLK_SPACE, 5, 3);
 	airplanes_->addInputComponent(inputComp_);
@@ -81,15 +61,10 @@ void ExampleGame::initGame() {
 
 	physicsComp_ = new CircularMotionPhysics();
 	airplanes_->addPhysicsComponent(physicsComp_);
-	/*physicsComp_ = new RotationPhysics(5);
-	airplanes_->addPhysicsComponent(physicsComp_);*/
-
+	//physicsComp_ = new RotationPhysics(5);
+	//airplanes_->addPhysicsComponent(physicsComp_);
 	actors_.push_back(airplanes_);
-
-	/*StarWarsBulletManager* illo = new StarWarsBulletManager(this);
-	actors_.push_back(illo);
-	illo->Shoot();
-	illo->Shoot();*/
+	*/
 
 }
 

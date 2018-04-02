@@ -25,6 +25,7 @@
     <ClCompile Include="DemoActor.cpp" />
     <ClCompile Include="ExampleGame.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="FightersManager.cpp" />
     <ClCompile Include="FillRectRenderer.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameComponent.cpp" />
@@ -65,6 +66,7 @@
     <ClInclude Include="DemoActor.h" />
     <ClInclude Include="ExampleGame.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="FightersManager.h" />
     <ClInclude Include="FillRectRenderer.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GameComponent.h" />

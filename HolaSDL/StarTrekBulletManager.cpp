@@ -69,4 +69,40 @@ bool StarTrekBulletManager::isOutOfBounds(GameObject* obj) {
 
 void StarTrekBulletManager::receive(Message* msg) {
 
+	Bullet* aux = static_cast<BulletAstroidCollision*>(msg)->bullet_;
+	switch (msg->id_)
+	{
+	case ROUND_START:
+		for (int i = 0; i < bullets_.size(); i++)
+		{
+			bullets_[i]->setActive(false);
+		}
+		break;
+
+	case ROUND_OVER:
+		for (int i = 0; i < bullets_.size(); i++)
+		{
+			bullets_[i]->setActive(false);
+		}
+		break;
+
+	case BULLET_ASTROID_COLLISION:
+		aux->setActive(false);
+		break;
+
+	case BULLET_FIGHTER_COLLISION:
+		aux->setActive(false);
+		break;
+
+	case FIGHTER_SHOOT:
+		Fighter* fighter = static_cast<FighterIsShooting*>(msg)->fighter_;
+		Vector2D bulletPos = fighter->getPosition() + Vector2D{fighter->getWidth() / 2, (fighter->getHeight() / 2) };
+		Vector2D bulletDir = (fighter->getDirection() * fighter->getHeight() / 2);
+		bulletDir.setX(-bulletDir.getX());
+		Vector2D bulletVel = fighter->getDirection() * SDL_max(fighter->getVelocity().magnitude() * 2, 2.0);
+
+		Shoot(fighter, bulletPos + bulletDir, bulletVel);
+		break;
+	}
+
 }
