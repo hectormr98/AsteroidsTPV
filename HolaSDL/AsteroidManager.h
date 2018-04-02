@@ -21,6 +21,7 @@ public:
 
 	//virtual std::vector<Asteroid*>& getAsteroids();
 	virtual void receive(Message* msg);
+	std::vector<Asteroid*> getAsteroids();
 private:
 	vector<Asteroid*> astroids_;
 

@@ -21,6 +21,7 @@
     <ClCompile Include="BulletsManager.cpp" />
     <ClCompile Include="CircularMotionPhysics.cpp" />
     <ClCompile Include="Collisions.cpp" />
+    <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="DemoActor.cpp" />
     <ClCompile Include="ExampleGame.cpp" />
@@ -62,6 +63,7 @@
     <ClInclude Include="BulletsManager.h" />
     <ClInclude Include="CircularMotionPhysics.h" />
     <ClInclude Include="Collisions.h" />
+    <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="DemoActor.h" />
     <ClInclude Include="ExampleGame.h" />

@@ -11,7 +11,6 @@ AsteroidManager::AsteroidManager(SDLGame* game): GameObject(game)
 	initAsteroids();
 }
 
-
 AsteroidManager::~AsteroidManager()
 {
 }
@@ -150,3 +149,5 @@ void AsteroidManager::render(Uint32 time) {
 			astroids_[i]->render(time);
 	}
 }
+
+std::vector<Asteroid*> AsteroidManager::getAsteroids() { return astroids_; };
