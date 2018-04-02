@@ -1,8 +1,3 @@
-﻿  AsteroidManager.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(50): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(52): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(71): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(80): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(141): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(148): warning C4018: '<': no coinciden signed/unsigned
-  HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe
+﻿  GameManager.cpp
+     Creando biblioteca C:\Users\pekev\OneDrive\Documentos\GitHub\AsteroidsTPV\bin\HolaSDLDebug.lib y objeto C:\Users\pekev\OneDrive\Documentos\GitHub\AsteroidsTPV\bin\HolaSDLDebug.exp
+  HolaSDL.vcxproj -> C:\Users\pekev\OneDrive\Documentos\GitHub\AsteroidsTPV\bin\HolaSDLDebug.exe

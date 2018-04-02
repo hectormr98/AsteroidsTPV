@@ -7,8 +7,8 @@ FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameOb
 	fighter = new Fighter(game, 0);
 	fighter->setWidth(50);
 	fighter->setHeight(50);
-	fighter->setPosition(Vector2D(game->getWindowWidth() / 3, game->getWindowHeight() / 4 + game->getWindowHeight() / 2));
-	fighter->setVelocity(Vector2D(1, 0));
+	fighter->setPosition(Vector2D(game->getWindowWidth() / 2, game->getWindowHeight() / 2));
+	fighter->setVelocity(Vector2D(0, 0));
 	fighter->setDirection(Vector2D(0, -1));
 
 	renderComp_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Airplanes));
@@ -17,7 +17,7 @@ FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameOb
 	fighter->addPhysicsComponent(&circulrMotoionComp_);
 	accelerationComp_ = new  AccelerationInputComponent(5, SDLK_a, SDLK_d, SDLK_w, SDLK_s);
 	fighter->addInputComponent(accelerationComp_);
-
+	
 	physics = BasicMotionPhysics();
 	fighter->addPhysicsComponent(&physics);
 
@@ -27,6 +27,8 @@ FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameOb
 	fighter->addInputComponent(gunComp1_);
 	gunComp2_ = new GunInputComponent(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 1000, 3);
 	//gunComp2_ = new GunInputComponent(illo, SDLK_SPACE, 1000, 3);
+	gunComp1_->registerObserver(bulletsMamager);
+	gunComp2_->registerObserver(bulletsMamager);
 }
 
 
@@ -43,8 +45,6 @@ void FightersManager::update(Uint32 time)
 {
 	if (fighter->isActive()) {
 		fighter->update(time);
-		cout << fighter->getPosition();
-		system("cls");
 	}
 }
 void FightersManager::render(Uint32 time)

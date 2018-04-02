@@ -4,7 +4,7 @@
 #include"StarTrekBulletManager.h"
 #include "Timer.h"
 
-class GunInputComponent: public InputComponent
+class GunInputComponent: public InputComponent, public Observable
 {
 protected:
 	BulletsManager* manager;

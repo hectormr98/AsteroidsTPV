@@ -96,12 +96,7 @@ void StarTrekBulletManager::receive(Message* msg) {
 
 	case FIGHTER_SHOOT:
 		Fighter* fighter = static_cast<FighterIsShooting*>(msg)->fighter_;
-		Vector2D bulletPos = fighter->getPosition() + Vector2D {fighter->getWidth() / 2, (fighter->getHeight() / 2) };
-		Vector2D bulletDir = (fighter->getDirection() * fighter->getHeight() / 2);
-		bulletDir.setX(-bulletDir.getX());
-		Vector2D bulletVel = fighter->getDirection() * SDL_max(fighter->getVelocity().magnitude() * 2, 2.0);
-
-		Shoot(fighter, bulletPos + bulletDir, bulletVel);
+		Shoot(fighter, static_cast<FighterIsShooting*>(msg)->bulletPosition_, static_cast<FighterIsShooting*>(msg)->bulletVelocity_);
 		break;
 	}
 

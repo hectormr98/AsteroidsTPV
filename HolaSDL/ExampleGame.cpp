@@ -37,6 +37,7 @@ void ExampleGame::initGame() {
 	AsteroidManager* asteroids = new AsteroidManager(this);
 	actors_.push_back(asteroids);
 	
+
 	/*airplanes_ = new GameComponent(this);
 	airplanes_->setWidth(50);
 	airplanes_->setHeight(50);

@@ -30,6 +30,7 @@
     <ClCompile Include="FillRectRenderer.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameComponent.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GunInputComponent.cpp" />
     <ClCompile Include="ImageRenderer.cpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="FillRectRenderer.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GameComponent.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GunInputComponent.h" />
     <ClInclude Include="ImageRenderer.h" />
