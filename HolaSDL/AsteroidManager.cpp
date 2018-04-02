@@ -4,6 +4,9 @@
 
 AsteroidManager::AsteroidManager(SDLGame* game): GameObject(game)
 {
+	astroidImage_ = ImageRenderer(game->getResources()->getImageTexture(Resources::Astroid));
+	circularPhysics_ = CircularMotionPhysics();
+	rotationPhysics_ = RotationPhysics(2);
 }
 
 
@@ -50,10 +53,6 @@ Asteroid* AsteroidManager::getAsteroid() {
 	}
 	else {
 		Asteroid* st = new Asteroid(game_);
-
-		//rotationPhysics_ = RotationPhysics(2);
-		circularPhysics_ = CircularMotionPhysics();
-		astroidImage_ = ImageRenderer(game_->getResources()->getImageTexture(Resources::Astroid));
 
 		st->addPhysicsComponent(&rotationPhysics_);
 		st->addPhysicsComponent(&circularPhysics_);

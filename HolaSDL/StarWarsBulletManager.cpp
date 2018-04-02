@@ -34,7 +34,7 @@ void StarWarsBulletManager::Shoot(Vector2D IniPos, Vector2D IniDir, Vector2D Ini
 void StarWarsBulletManager::update(Uint32 time) {
 	for (int i = 0; i < bullets.size(); i++) {
 		if(bullets[i]->isActive())
-		bullets[i]->update(time);
+			bullets[i]->update(time);
 		if (bullets[i]->isActive() && IsOutOfBounds(bullets[i])) {
 			bullets[i]->setActive(false);
 		}

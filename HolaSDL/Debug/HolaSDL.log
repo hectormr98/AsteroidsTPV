@@ -1,6 +1,18 @@
-﻿  AsteroidManager.cpp
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(45): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(47): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(68): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\asteroidmanager.cpp(75): warning C4018: '<': no coinciden signed/unsigned
-  HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe
+﻿  StarTrekBulletManager.cpp
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\startrekbulletmanager.cpp(27): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\startrekbulletmanager.cpp(29): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\startrekbulletmanager.cpp(45): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\startrekbulletmanager.cpp(51): warning C4018: '<': no coinciden signed/unsigned
+  ExampleGame.cpp
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\accelerationinputcomponent.h(8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\examplegame.cpp(75): error C2259: 'StarWarsBulletManager': no se puede crear una instancia de una clase abstract
+  c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\examplegame.cpp(75): note: debido a los siguientes miembros:
+  c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\examplegame.cpp(75): note: 'std::vector<Bullet *,std::allocator<_Ty>> &BulletsManager::getBullets(void)': es abstracto
+          with
+          [
+              _Ty=Bullet *
+          ]
+  c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\bulletsmanager.h(14): note: vea la declaración de 'BulletsManager::getBullets'
+  c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\examplegame.cpp(75): note: 'void Observer::receive(Message *)': es abstracto
+  c:\users\hecto\universidad\2º\tpv2\asteroidstpv\holasdl\observer.h(14): note: vea la declaración de 'Observer::receive'
+  Generando código...

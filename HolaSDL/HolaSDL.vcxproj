@@ -43,6 +43,7 @@
     <ClCompile Include="SDLGame.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="SoundEffect.cpp" />
+    <ClCompile Include="StarTrekBulletManager.cpp" />
     <ClCompile Include="StarWarsBulletManager.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="SoundEffect.h" />
+    <ClInclude Include="StarTrekBulletManager.h" />
     <ClInclude Include="StarWarsBulletManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
