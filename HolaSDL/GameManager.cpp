@@ -3,6 +3,8 @@
 GameManager::GameManager(SDLGame* game) : GameObject(game)
 {
 	score = 0;
+	cout << "ROUND:" + to_string(ronda) << endl;
+	cout << "Lifes: " + to_string(vidas) << endl;
 }
 
 
@@ -52,7 +54,8 @@ void GameManager::receive(Message* msg) {
 		}
 		else {
 			system("cls");
-			cout << vidas << endl;
+			cout << "ROUND:" +to_string( ronda) << endl;
+			cout << "Lifes: "+ to_string(vidas) << endl;
 			send(&Message(BADGE_OFF));
 			send(&Message(ROUND_START));
 		}
@@ -63,7 +66,13 @@ void GameManager::receive(Message* msg) {
 			setBadge(true);
 		break;
 	case NO_MORE_ATROIDS:
-
+		vidas++;
+		ronda++;
+		system("cls");
+		cout << "ROUND:" + to_string(ronda) << endl;
+		cout << "Lifes: " + to_string(vidas) << endl;
+		send(&Message(BADGE_OFF));
+		send(&Message(ROUND_START));
 		break;
 	default:
 		break;

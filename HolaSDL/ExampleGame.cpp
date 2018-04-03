@@ -52,6 +52,7 @@ void ExampleGame::initGame() {
 	coll->registerObserver(fighter);
 	coll->registerObserver(sound);
 
+	asteroids->registerObserver(GM);
 
 	GM->registerObserver(bulletManager);
 	GM->registerObserver(fighter);

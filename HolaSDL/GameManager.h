@@ -27,7 +27,8 @@ public:
 
 private:
 	int vidas = 3,
-		badgeCounter = 0;
+		badgeCounter = 0,
+		ronda = 1;
 	int score;
 	int numAsteroids;
 	BadgeTimer badge;

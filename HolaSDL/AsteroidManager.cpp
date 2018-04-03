@@ -22,6 +22,7 @@ void AsteroidManager::receive(Message* msg) {
 	case BULLET_ASTROID_COLLISION:
 		if (aux->getGeneration() > 1) {
 			int random = rand() % 3 + 2;
+			numOfAsteroids_ += random; //add the new sons
 			for (int i = 0; i < random; i++) {
 				Asteroid* son = getAsteroid();
 				son->setPosition(aux->getPosition());
@@ -35,6 +36,9 @@ void AsteroidManager::receive(Message* msg) {
 			}
 		}
 		aux->setActive(false);
+		numOfAsteroids_--; //rest the father who died
+		if (numOfAsteroids_ <= 0) //end of the level
+			send(&Message(NO_MORE_ATROIDS));
 		break;
 	case ROUND_START:
 		initAsteroids();
@@ -71,7 +75,7 @@ void AsteroidManager::initAsteroids() {
 		if (astroids_[i]->isActive())
 			astroids_[i]->setActive(false);
 	}
-	int aux = rand() % 6 + 5;
+	int aux = rand() % 6 + 1;
 
 	for (int i = 0; i < aux; i++) {
 
@@ -132,7 +136,8 @@ void AsteroidManager::initAsteroids() {
 			st->setWidth(auxGen * 15 + 10);
 		}
 	}
-	numOfAsteroids_ = astroids_.size();
+	numOfAsteroids_ = aux;
+	
 	//GameManager::setAsteroids(numOfAsteroids_);
 }
 
