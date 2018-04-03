@@ -6,6 +6,7 @@
 #include "AccelerationInputComponent.h"
 #include "GunInputComponent.h"
 #include"StarTrekBulletManager.h"
+#include "SoundManager.h"
 
 
 #include"BasicMotionPhysics.h"
@@ -34,6 +35,7 @@ private:
 	//RotationInputComp rotationComp_;
 	GunInputComponent* gunComp1_ = nullptr;
 	GunInputComponent* gunComp2_ = nullptr;
+	SoundManager* sound;
 	//BadgeRenderer badgeRenderer_;
 };
 

@@ -2,7 +2,7 @@
 
 GameManager::GameManager(SDLGame* game) : GameObject(game)
 {
-	
+	score = 0;
 }
 
 
@@ -19,7 +19,7 @@ int GameManager::getScore()const {
 }
 
 int GameManager::getLives()const {
-	return 0;
+	return vidas;
 }
 
 bool GameManager::isRunning()const {
@@ -72,4 +72,18 @@ void GameManager::receive(Message* msg) {
 
 void GameManager::update(Uint32 time) {
 	badge.update(this, time);
+	/*if (score >= numAsteroids)
+	{
+		receive(&Message(NO_MORE_ATROIDS));
+	}
+	*/
+}
+
+void GameManager::addScore(int i)
+{
+	//score++;
+}
+void GameManager::setAsteroids(int i)
+{
+	numAsteroids = i;
 }

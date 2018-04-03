@@ -17,6 +17,7 @@
 #include"AsteroidManager.h"
 #include"CollisionsManager.h"
 #include"GameManager.h"
+#include "SoundManager.h"
 
 
 ExampleGame::ExampleGame() :
@@ -42,53 +43,29 @@ void ExampleGame::initGame() {
 	AsteroidManager* asteroids = new AsteroidManager(this);
 
 	CollisionsManager* coll = new CollisionsManager(this, asteroids, bulletManager, fighter);
+
+	SoundManager* sound = new SoundManager(this);
+
 	coll->registerObserver(GM);
 	coll->registerObserver(asteroids);
 	coll->registerObserver(bulletManager);
 	coll->registerObserver(fighter);
+	coll->registerObserver(sound);
 
 
 	GM->registerObserver(bulletManager);
 	GM->registerObserver(fighter);
 	GM->registerObserver(asteroids);
+	GM->registerObserver(sound);
 
 	actors_.push_back(coll);
 	actors_.push_back(bulletManager);
 	actors_.push_back(fighter);
 	actors_.push_back(asteroids);
 	actors_.push_back(GM);
-	/*airplanes_ = new GameComponent(this);
-	airplanes_->setWidth(50);
-	airplanes_->setHeight(50);
-	airplanes_->setPosition(Vector2D(getWindowWidth() / 3, getWindowHeight() / 4 + getWindowHeight()/2));
-	airplanes_->setVelocity(Vector2D(1, 0));
-	airplanes_->setDirection(Vector2D(0, -1));
 
-	renderComp_ = new ImageRenderer(getResources()->getImageTexture(Resources::Airplanes));
-	airplanes_->addRenderComponent(renderComp_);
-	inputComp_ = new AccelerationInputComponent(5, SDLK_a, SDLK_d, SDLK_w, SDLK_s);
-	physicsComp_ = new BasicMotionPhysics();
 
-	// choose either the filled rectangle or the image renderer
-	//
-	//	renderComp_ = new FillRectRenderer( { COLOR(0x11ff22ff) });
-	//renderComp_ = new ImageRenderer( getResources()->getImageTexture(Resources::Star));
-
-	airplanes_->addInputComponent(inputComp_);
-
-	StarTrekBulletManager* illo = new StarTrekBulletManager(this);
-	actors_.push_back(illo);
-	inputComp_ = new GunInputComponent(illo, SDLK_SPACE, 5, 3);
-	airplanes_->addInputComponent(inputComp_);
-
-	airplanes_->addPhysicsComponent(physicsComp_);
-
-	physicsComp_ = new CircularMotionPhysics();
-	airplanes_->addPhysicsComponent(physicsComp_);
-	//physicsComp_ = new RotationPhysics(5);
-	//airplanes_->addPhysicsComponent(physicsComp_);
-	actors_.push_back(airplanes_);*/
-	
+	GM->send(&Message(ROUND_START));
 
 }
 

@@ -1,5 +1,5 @@
 #include "AsteroidManager.h"
-
+#include"GameManager.h"
 #include<ctime>
 
 AsteroidManager::AsteroidManager(SDLGame* game): GameObject(game)
@@ -133,6 +133,7 @@ void AsteroidManager::initAsteroids() {
 		}
 	}
 	numOfAsteroids_ = astroids_.size();
+	//GameManager::setAsteroids(numOfAsteroids_);
 }
 
 void AsteroidManager::handleInput(Uint32 time, const SDL_Event& e) {}

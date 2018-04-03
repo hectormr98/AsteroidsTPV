@@ -4,6 +4,7 @@
 
 FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameObject(game)
 {
+	sound = new SoundManager(game);
 	fighter = new Fighter(game, 0);
 	fighter->setWidth(50);
 	fighter->setHeight(50);
@@ -29,6 +30,8 @@ FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameOb
 	//gunComp2_ = new GunInputComponent(illo, SDLK_SPACE, 1000, 3);
 	gunComp1_->registerObserver(bulletsMamager);
 	gunComp2_->registerObserver(bulletsMamager);
+	gunComp1_->registerObserver(sound);
+	gunComp2_->registerObserver(sound);
 }
 
 

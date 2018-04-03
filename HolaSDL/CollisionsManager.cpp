@@ -1,5 +1,6 @@
 #include "CollisionsManager.h"
 #include"Collisions.h"
+#include "GameManager.h"
 
 
 CollisionsManager::CollisionsManager(SDLGame* game, AsteroidManager* stm, BulletsManager* bm, FightersManager* ft):GameObject(game), Observable()

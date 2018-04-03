@@ -1,2 +1,8 @@
 ﻿  GameManager.cpp
-  HolaSDL.vcxproj -> C:\Users\hecto\UNIVERSIDAD\2º\TPV2\AsteroidsTPV\bin\HolaSDLDebug.exe
+  CollisionsManager.cpp
+c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\accelerationinputcomponent.h(8): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\collisionsmanager.cpp(28): warning C4018: '<': no coinciden signed/unsigned
+c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\collisionsmanager.cpp(37): warning C4018: '<': no coinciden signed/unsigned
+c:\users\pekev\onedrive\documentos\github\asteroidstpv\holasdl\collisionsmanager.cpp(38): warning C4018: '<': no coinciden signed/unsigned
+  Generando código...
+  HolaSDL.vcxproj -> C:\Users\pekev\OneDrive\Documentos\GitHub\AsteroidsTPV\bin\HolaSDLDebug.exe
