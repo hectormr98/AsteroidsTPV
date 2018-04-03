@@ -77,12 +77,15 @@ void FightersManager::receive(Message* msg) {
 	case BADGE_ON:
 		fighter->delInputComponent(gunComp1_);
 		fighter->delInputComponent(gunComp2_);
+		fighter->delRenderComponent(&badgeRenderer_);
 		fighter->addInputComponent(gunComp2_);
+		fighter->addRenderComponent(&badgeRenderer_);
 		//fighter->addRenderComponent(badgeRenderer);
 			break;
 	case BADGE_OFF:
 		fighter->delInputComponent(gunComp2_);
 		fighter->delInputComponent(gunComp1_);
+		fighter->delRenderComponent(&badgeRenderer_);
 		fighter->addInputComponent(gunComp1_);
 		//fighter->delRenderComponent(badgeRenderer);
 			break;

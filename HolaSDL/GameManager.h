@@ -3,6 +3,8 @@
 #include"Observable.h"
 #include"Observer.h"
 #include"BadgeTimer.h"
+#include"LivesRenderer.h"
+#include"ScoreRenderer.h"
 
 class GameManager : public GameObject, public Observable, public Observer
 {
@@ -22,7 +24,7 @@ public:
 	void setAsteroids(int i);
 
 	virtual void update(Uint32 time);
-	virtual void render(Uint32 time) {};
+	virtual void render(Uint32 time);
 	virtual void handleInput(Uint32 time, const SDL_Event& e) {};
 
 private:
@@ -32,5 +34,7 @@ private:
 	int score;
 	int numAsteroids;
 	BadgeTimer badge;
+	LivesRenderer lifes;
+	ScoreRenderer scoreRend;
 };
 

@@ -15,6 +15,7 @@
     <ClCompile Include="AccelerationInputComponent.cpp" />
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidManager.cpp" />
+    <ClCompile Include="BadgeRenderer.cpp" />
     <ClCompile Include="BadgeTimer.cpp" />
     <ClCompile Include="BasicKBCtrlComponent.cpp" />
     <ClCompile Include="BasicMotionPhysics.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="GunInputComponent.cpp" />
     <ClCompile Include="ImageRenderer.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="LivesRenderer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Observable.cpp" />
@@ -63,6 +65,7 @@
     <ClInclude Include="AccelerationInputComponent.h" />
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="AsteroidManager.h" />
+    <ClInclude Include="BadgeRenderer.h" />
     <ClInclude Include="BadgeTimer.h" />
     <ClInclude Include="BasicKBCtrlComponent.h" />
     <ClInclude Include="BasicMotionPhysics.h" />
@@ -86,6 +89,7 @@
     <ClInclude Include="GunInputComponent.h" />
     <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="LivesRenderer.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Observable.h" />

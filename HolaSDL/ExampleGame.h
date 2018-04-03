@@ -7,6 +7,13 @@
 #include "GameObject.h"
 #include "GameComponent.h"
 
+#include"StarTrekBulletManager.h"
+#include "FightersManager.h"
+#include"AsteroidManager.h"
+#include"CollisionsManager.h"
+#include"GameManager.h"
+#include "SoundManager.h"
+
 class ExampleGame: public SDLGame {
 
 public:
@@ -35,6 +42,14 @@ private:
 	InputComponent* inputComp_;
 	PhysicsComponent* physicsComp_;
 	RenderComponent* renderComp_;
+
+
+	StarTrekBulletManager bulletsManager_;
+	FightersManager fightersManager_;
+	AsteroidManager astroidsManager_;
+	CollisionsManager collisionManager_;
+	GameManager gameManager_;
+	SoundManager soundManager_;
 };
 
 #endif /* EXAMPLEGAME_H_ */

@@ -19,7 +19,7 @@ void GameCtrlInputComponent::handleInput(GameObject* o, Uint32 time, const SDL_E
 			// rest the score if the game is over
 			if (gm->isGameOver()) {
 				cout << gm->getScore();
-				//gm->setRightScore(0);
+				//gameManager_.setRightScore(0);
 			}
 		}
 	}

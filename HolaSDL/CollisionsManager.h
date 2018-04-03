@@ -8,6 +8,7 @@
 class CollisionsManager: public GameObject, public Observable	
 {
 public:
+	CollisionsManager(SDLGame* game) :GameObject(game) {};
 	CollisionsManager(SDLGame* game, 
 						AsteroidManager* stm,
 						BulletsManager* bum,

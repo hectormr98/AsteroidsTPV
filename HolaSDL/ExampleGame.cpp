@@ -11,17 +11,35 @@
 #include"RotationPhysics.h"
 
 #include"StarWarsBulletManager.h"
-#include"StarTrekBulletManager.h"
+
 #include"GunInputComponent.h"
-#include "FightersManager.h"
-#include"AsteroidManager.h"
-#include"CollisionsManager.h"
-#include"GameManager.h"
-#include "SoundManager.h"
+
 
 
 ExampleGame::ExampleGame() :
-		SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_) {
+	SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
+	gameManager_(this), bulletsManager_(this), fightersManager_(this,&bulletsManager_),
+	astroidsManager_(this), collisionManager_(this, &astroidsManager_, &bulletsManager_, &fightersManager_),
+	soundManager_(this){
+	
+	//GameManager* GM = new GameManager(this);
+	//gameManager_ = GameManager(this);
+
+	//StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
+	//bulletsManager_ = StarTrekBulletManager(this);
+
+	//FightersManager* fighter = new FightersManager(this, bulletManager);
+	//fightersManager_ = FightersManager(this, &bulletsManager_);
+
+	//AsteroidManager* asteroids = new AsteroidManager(this);
+	//astroidsManager_ = AsteroidManager(this);
+
+	//CollisionsManager* coll = new CollisionsManager(this, asteroids, bulletManager, fighter);
+	//collisionManager_ = CollisionsManager(this, &astroidsManager_, &bulletsManager_, &fightersManager_);
+
+	//SoundManager* sound = new SoundManager(this);
+	//soundManager_ = SoundManager(this);
+
 	initGame();
 	exit_ = false;
 }
@@ -34,39 +52,29 @@ void ExampleGame::initGame() {
 
 	// hide cursor
 	SDL_ShowCursor(0);
-	GameManager* GM = new GameManager(this);
-
-	StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
-
-	FightersManager* fighter = new FightersManager(this, bulletManager);
-
-	AsteroidManager* asteroids = new AsteroidManager(this);
-
-	CollisionsManager* coll = new CollisionsManager(this, asteroids, bulletManager, fighter);
-
-	SoundManager* sound = new SoundManager(this);
-
-	coll->registerObserver(GM);
-	coll->registerObserver(asteroids);
-	coll->registerObserver(bulletManager);
-	coll->registerObserver(fighter);
-	coll->registerObserver(sound);
-
-	asteroids->registerObserver(GM);
-
-	GM->registerObserver(bulletManager);
-	GM->registerObserver(fighter);
-	GM->registerObserver(asteroids);
-	GM->registerObserver(sound);
-
-	actors_.push_back(coll);
-	actors_.push_back(bulletManager);
-	actors_.push_back(fighter);
-	actors_.push_back(asteroids);
-	actors_.push_back(GM);
 
 
-	GM->send(&Message(ROUND_START));
+	collisionManager_.registerObserver(&gameManager_);
+	collisionManager_.registerObserver(&astroidsManager_);
+	collisionManager_.registerObserver(&astroidsManager_);
+	collisionManager_.registerObserver(&fightersManager_);
+	collisionManager_.registerObserver(&soundManager_);
+
+	astroidsManager_.registerObserver(&gameManager_);
+
+	gameManager_.registerObserver(&bulletsManager_);
+	gameManager_.registerObserver(&fightersManager_);
+	gameManager_.registerObserver(&astroidsManager_);
+	gameManager_.registerObserver(&soundManager_);
+
+	actors_.push_back(&collisionManager_);
+	actors_.push_back(&bulletsManager_);
+	actors_.push_back(&astroidsManager_);
+	actors_.push_back(&fightersManager_);
+	actors_.push_back(&gameManager_);
+
+
+	gameManager_.send(&Message(ROUND_START));
 
 }
 

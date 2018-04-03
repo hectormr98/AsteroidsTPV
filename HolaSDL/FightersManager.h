@@ -11,12 +11,13 @@
 
 #include"BasicMotionPhysics.h"
 //#include "RotationInputComp"
-//#include "BadgeRenderer"
+#include "BadgeRenderer.h"
 
 
 
 class FightersManager : public GameObject, public Observer {
 public:
+	FightersManager(SDLGame* game) :GameObject(game) {};
 	FightersManager(SDLGame* game, Observer* bulletsMamager);
 	virtual ~FightersManager();
 	virtual void handleInput(Uint32 time, const SDL_Event& event);
@@ -36,6 +37,6 @@ private:
 	GunInputComponent* gunComp1_ = nullptr;
 	GunInputComponent* gunComp2_ = nullptr;
 	SoundManager* sound;
-	//BadgeRenderer badgeRenderer_;
+	BadgeRenderer badgeRenderer_;
 };
 
