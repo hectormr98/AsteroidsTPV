@@ -56,7 +56,7 @@ void ExampleGame::initGame() {
 
 	collisionManager_.registerObserver(&gameManager_);
 	collisionManager_.registerObserver(&astroidsManager_);
-	collisionManager_.registerObserver(&astroidsManager_);
+	collisionManager_.registerObserver(&bulletsManager_);
 	collisionManager_.registerObserver(&fightersManager_);
 	collisionManager_.registerObserver(&soundManager_);
 
@@ -134,8 +134,14 @@ void ExampleGame::handleInput(Uint32 time) {
 }
 
 void ExampleGame::update(Uint32 time) {
-	for (GameObject* o : actors_) {
-		o->update(time);
+	if (gameManager_.isRunning()) {
+		for (GameObject* o : actors_) {
+			o->update(time);
+		}
+	}
+	else {
+		system("cls");
+		cout << "Pulsa cualquier boton para empezar" << endl;
 	}
 }
 

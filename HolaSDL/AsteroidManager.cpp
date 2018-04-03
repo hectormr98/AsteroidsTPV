@@ -36,9 +36,9 @@ void AsteroidManager::receive(Message* msg) {
 			}
 		}
 		aux->setActive(false);
-		numOfAsteroids_--; //rest the father who died
+  		numOfAsteroids_--; //rest the father who died
 		if (numOfAsteroids_ <= 0) //end of the level
-			send(&Message(NO_MORE_ATROIDS));
+ 			send(&Message(NO_MORE_ATROIDS));
 		break;
 	case ROUND_START:
 		initAsteroids();

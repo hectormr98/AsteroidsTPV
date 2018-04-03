@@ -26,11 +26,11 @@ int GameManager::getLives()const {
 }
 
 bool GameManager::isRunning()const {
-	return false;
+	return running;
 }
 
 void GameManager::setRunning(bool r) {
-	
+	running = r;
 }
 
 void GameManager::setBadge(bool b) {
@@ -60,6 +60,7 @@ void GameManager::receive(Message* msg) {
 			send(&Message(BADGE_OFF));
 			send(&Message(ROUND_START));
 		}
+		setRunning(false);
 		break;
 	case BULLET_ASTROID_COLLISION:
 		score++;
@@ -76,6 +77,7 @@ void GameManager::receive(Message* msg) {
 		cout << "Lifes: " + to_string(vidas) << endl;
 		send(&Message(BADGE_OFF));
 		send(&Message(ROUND_START));
+		setRunning(false);
 		break;
 	default:
 		break;
@@ -100,7 +102,13 @@ void GameManager::setAsteroids(int i)
 	numAsteroids = i;
 }
 
+int GameManager::getRound() const{ return ronda; }
+
 void GameManager::render(Uint32 time) {
 	lifes.render(this, time);
 	scoreRend.render(this, time);
+}
+
+void GameManager::handleInput(Uint32 time, const SDL_Event& e) {
+	control.handleInput(this, time, e);
 }

@@ -17,7 +17,7 @@ void ScoreRenderer::render(GameObject* o, Uint32 time) {
 
 	// draw score
 	Texture score(o->getGame()->getRenderer(),
-		    "Score: " + std::to_string(gm->getScore()),
+		    "Score: " + std::to_string(gm->getScore()) + "  Round: "+ std::to_string(gm->getRound()),
 			*(game->getResources()->getFont(Resources::ARIAL24)),
 			{ COLOR(0x111122ff) });
 	score.render(game->getRenderer(),
