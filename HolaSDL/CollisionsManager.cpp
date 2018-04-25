@@ -3,11 +3,12 @@
 #include "GameManager.h"
 
 
-CollisionsManager::CollisionsManager(SDLGame* game, AsteroidManager* stm, BulletsManager* bm, FightersManager* ft):GameObject(game), Observable()
+CollisionsManager::CollisionsManager(SDLGame* game, AsteroidManager* stm, BulletsManager* bm, FightersManager* ft, Bonus* bon):GameObject(game), Observable()
 {
 	asteroidManager = stm;
 	bulletsManager = bm;
 	fighterManager = ft;
+	bonus = bon;
 }
 
 
@@ -43,6 +44,14 @@ void CollisionsManager::update(Uint32 time) {
 				}
 			}
 				
+		}
+	}
+
+	for (int i = 0; i < bullets.size(); i++)
+	{
+		if (Collisions::collidesWithRotation(bullets[i], bonus))
+		{
+			send(new Message(BONUS_OFF));
 		}
 	}
 }

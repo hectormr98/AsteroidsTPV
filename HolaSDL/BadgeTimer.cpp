@@ -24,7 +24,6 @@ void BadgeTimer::update(GameObject* o, Uint32 time)
 	if (on_)
 	{
 		timer->update();
-		//cout << timer->TimeSinceTimerCreation << endl;
 		if (timer->TimeSinceTimerCreation > timeInterval_)
 		{
 			on_ = false;

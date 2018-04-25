@@ -1,6 +1,0 @@
-alumnos: Alberto Casado Trapote y Héctor Marcos Rabadán
-
-INFO:
-Entregado horas más tarde de la fecha de entrega. Habíamos subido versión funcional 
-(anque incompleta) antes de la hora de entrega. Con esta versión implementamos la interfaz,
-los sonidos y el control de pausa del juego. Perdón por las molestias.

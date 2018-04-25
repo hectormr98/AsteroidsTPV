@@ -19,27 +19,8 @@
 ExampleGame::ExampleGame() :
 	SDLGame("Example Game", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
 	gameManager_(this), bulletsManager_(this), fightersManager_(this,&bulletsManager_),
-	astroidsManager_(this), collisionManager_(this, &astroidsManager_, &bulletsManager_, &fightersManager_),
+	astroidsManager_(this), bonus(this), collisionManager_(this, &astroidsManager_, &bulletsManager_, &fightersManager_, &bonus),
 	soundManager_(this){
-	
-	//GameManager* GM = new GameManager(this);
-	//gameManager_ = GameManager(this);
-
-	//StarTrekBulletManager* bulletManager = new StarTrekBulletManager(this);
-	//bulletsManager_ = StarTrekBulletManager(this);
-
-	//FightersManager* fighter = new FightersManager(this, bulletManager);
-	//fightersManager_ = FightersManager(this, &bulletsManager_);
-
-	//AsteroidManager* asteroids = new AsteroidManager(this);
-	//astroidsManager_ = AsteroidManager(this);
-
-	//CollisionsManager* coll = new CollisionsManager(this, asteroids, bulletManager, fighter);
-	//collisionManager_ = CollisionsManager(this, &astroidsManager_, &bulletsManager_, &fightersManager_);
-
-	//SoundManager* sound = new SoundManager(this);
-	//soundManager_ = SoundManager(this);
-
 	initGame();
 	exit_ = false;
 }
@@ -52,7 +33,6 @@ void ExampleGame::initGame() {
 
 	// hide cursor
 	SDL_ShowCursor(0);
-
 
 	collisionManager_.registerObserver(&gameManager_);
 	collisionManager_.registerObserver(&astroidsManager_);
@@ -74,6 +54,9 @@ void ExampleGame::initGame() {
 	actors_.push_back(&gameManager_);
 
 
+	gameManager_.registerObserver(&bonus);
+	collisionManager_.registerObserver(&bonus);
+	actors_.push_back(&bonus);
 	gameManager_.send(&Message(ROUND_START));
 
 }

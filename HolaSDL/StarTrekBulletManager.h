@@ -25,5 +25,8 @@ private:
 	BasicMotionPhysics bulletPhysics_;
 
 	bool isOutOfBounds(GameObject* o);
+
+	int badgeType = 0;
+	bool badgeOn = false;
 };
 

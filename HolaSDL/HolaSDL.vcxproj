@@ -19,6 +19,7 @@
     <ClCompile Include="BadgeTimer.cpp" />
     <ClCompile Include="BasicKBCtrlComponent.cpp" />
     <ClCompile Include="BasicMotionPhysics.cpp" />
+    <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletsManager.cpp" />
     <ClCompile Include="CircularMotionPhysics.cpp" />
@@ -50,6 +51,7 @@
     <ClCompile Include="RotationPhysics.cpp" />
     <ClCompile Include="ScoreRenderer.cpp" />
     <ClCompile Include="SDLGame.cpp" />
+    <ClCompile Include="SixWaysGunInput.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="SoundManager.cpp" />
@@ -69,6 +71,7 @@
     <ClInclude Include="BadgeTimer.h" />
     <ClInclude Include="BasicKBCtrlComponent.h" />
     <ClInclude Include="BasicMotionPhysics.h" />
+    <ClInclude Include="Bonus.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletsManager.h" />
     <ClInclude Include="CircularMotionPhysics.h" />
@@ -101,6 +104,7 @@
     <ClInclude Include="ScoreRenderer.h" />
     <ClInclude Include="SDLGame.h" />
     <ClInclude Include="sdl_includes.h" />
+    <ClInclude Include="SixWaysGunInput.h" />
     <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="SoundManager.h" />

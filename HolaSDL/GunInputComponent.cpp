@@ -36,9 +36,9 @@ void GunInputComponent::handleInput(GameObject* o, Uint32 time, const SDL_Event&
 				Vector2D bulletVel = o->getDirection() * SDL_max(o->getVelocity().magnitude() * 2, 2.0);
 				bulletVel.setX(-bulletVel.getX());
 
-				Message* mensaje = new FighterIsShooting(static_cast<Fighter*>(o), o->getPosition() + bulletPos + bulletDir, bulletVel);
+				Fighter* fighter = static_cast<Fighter*>(o);
+				Message* mensaje = new FighterIsShooting(fighter, fighter->getPosition() + bulletPos + bulletDir, bulletVel);
 				send(mensaje);
-				//static_cast<StarWarsBulletManager*>(manager)->Shoot(o->getPosition() + bulletPos + bulletDir, o->getDirection(), bulletVel);
 			}
 		}
 	}

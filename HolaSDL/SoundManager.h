@@ -13,5 +13,6 @@ public:
 private:
 	SDLGame* game;
 	SoundEffect* sound;
+	SoundEffect* sound2;
 };
 

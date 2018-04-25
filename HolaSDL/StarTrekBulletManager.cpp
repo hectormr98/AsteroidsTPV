@@ -60,6 +60,7 @@ void StarTrekBulletManager::update(Uint32 time) {
 				bullets_[i]->setActive(false);
 		}
 	}
+
 }
 
 bool StarTrekBulletManager::isOutOfBounds(GameObject* obj) {
@@ -87,15 +88,21 @@ void StarTrekBulletManager::receive(Message* msg) {
 		break;
 
 	case BULLET_ASTROID_COLLISION:
-		aux->setActive(false);
+		if (badgeType != 2 || !badgeOn)
+		{
+			aux->setActive(false);
+		}
 		break;
 
 	case BULLET_FIGHTER_COLLISION:
-		aux->setActive(false);
+		//aux->setActive(false);
 		break;
 
 	case FIGHTER_SHOOT:
+
 		Fighter* fighter = static_cast<FighterIsShooting*>(msg)->fighter_;
+		badgeType = fighter->badgeType;
+		badgeOn = fighter->badgeOn;
 		Shoot(fighter, static_cast<FighterIsShooting*>(msg)->bulletPosition_, static_cast<FighterIsShooting*>(msg)->bulletVelocity_);
 		break;
 	}

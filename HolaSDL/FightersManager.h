@@ -5,6 +5,7 @@
 #include "ImageRenderer.h"
 #include "AccelerationInputComponent.h"
 #include "GunInputComponent.h"
+#include "SixWaysGunInput.h"
 #include"StarTrekBulletManager.h"
 #include "SoundManager.h"
 
@@ -26,6 +27,10 @@ public:
 	Fighter* getFighter();
 	virtual void receive(Message* msg);
 private:
+
+	int badgeType = 0;
+	int maxBadges = 3;
+	bool badgeOn = false;
 	Fighter* fighter = nullptr;
 	CircularMotionPhysics circulrMotoionComp_;
 	
@@ -35,7 +40,9 @@ private:
 	ImageRenderer renderComp_ = nullptr;
 	//RotationInputComp rotationComp_;
 	GunInputComponent* gunComp1_ = nullptr;
-	GunInputComponent* gunComp2_ = nullptr;
+	GunInputComponent* badge1_ = nullptr;
+	GunInputComponent* badge2_ = nullptr;
+	SixWaysGunInput* badge3_ = nullptr;
 	SoundManager* sound;
 	BadgeRenderer badgeRenderer_;
 };

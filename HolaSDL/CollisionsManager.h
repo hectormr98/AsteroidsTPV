@@ -4,6 +4,7 @@
 #include"BulletsManager.h"
 #include"AsteroidManager.h"
 #include"FightersManager.h"
+#include"Bonus.h"
 
 class CollisionsManager: public GameObject, public Observable	
 {
@@ -12,7 +13,8 @@ public:
 	CollisionsManager(SDLGame* game, 
 						AsteroidManager* stm,
 						BulletsManager* bum,
-						FightersManager* ftm);
+						FightersManager* ftm,
+						Bonus* bon);
 	virtual ~CollisionsManager();
 
 	virtual void handleInput(Uint32 time, const SDL_Event& e);
@@ -22,5 +24,6 @@ private:
 	BulletsManager* bulletsManager;
 	AsteroidManager* asteroidManager;
 	FightersManager* fighterManager;
+	Bonus* bonus;
 };
 

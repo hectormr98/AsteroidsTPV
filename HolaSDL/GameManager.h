@@ -22,6 +22,7 @@ public:
 	int getRound() const;
 	virtual void receive(Message* msg);
 
+
 	void addScore(int i);
 	void setAsteroids(int i);
 

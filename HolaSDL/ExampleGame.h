@@ -13,7 +13,7 @@
 #include"CollisionsManager.h"
 #include"GameManager.h"
 #include "SoundManager.h"
-
+#include "Bonus.h"
 class ExampleGame: public SDLGame {
 
 public:
@@ -36,6 +36,7 @@ private:
 	bool exit_;
 	std::vector<GameObject*> actors_;
 
+	Bonus bonus;
 	GameObject* demoObj_;
 	GameComponent* demoComp_;
 	GameComponent* airplanes_;

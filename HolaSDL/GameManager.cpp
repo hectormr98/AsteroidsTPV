@@ -3,8 +3,6 @@
 GameManager::GameManager(SDLGame* game) : GameObject(game)
 {
 	score = 0;
-	cout << "ROUND:" + to_string(ronda) << endl;
-	cout << "Lifes: " + to_string(vidas) << endl;
 	
 }
 
@@ -35,7 +33,7 @@ void GameManager::setRunning(bool r) {
 
 void GameManager::setBadge(bool b) {
 	if (b) {
-		badge.start(5);
+		badge.start(10);
 		send(&Message(BADGE_ON));
 	}
 	else {
@@ -54,30 +52,32 @@ void GameManager::receive(Message* msg) {
 			send(&Message(ROUND_OVER));
 		}
 		else {
-			system("cls");
-			cout << "ROUND:" +to_string( ronda) << endl;
-			cout << "Lifes: "+ to_string(vidas) << endl;
 			send(&Message(BADGE_OFF));
 			send(&Message(ROUND_START));
+			badgeCounter = 0;
+
 		}
 		setRunning(false);
 		break;
 	case BULLET_ASTROID_COLLISION:
 		score++;
 		badgeCounter++;
-		if(badgeCounter == 2)
+		if(badgeCounter == 4)
 			setBadge(true);
 		break;
 	case NO_MORE_ATROIDS:
 		if(vidas <=2)
 			vidas++;
 		ronda++;
-		system("cls");
-		cout << "ROUND:" + to_string(ronda) << endl;
-		cout << "Lifes: " + to_string(vidas) << endl;
 		send(&Message(BADGE_OFF));
 		send(&Message(ROUND_START));
+		send(&Message(NO_MORE_ATROIDS));
+		badgeCounter = 0;
 		setRunning(false);
+		break;
+	case BONUS_OFF:
+		if (vidas <= 2)
+			vidas++;
 		break;
 	default:
 		break;
@@ -86,11 +86,6 @@ void GameManager::receive(Message* msg) {
 
 void GameManager::update(Uint32 time) {
 	badge.update(this, time);
-	/*if (score >= numAsteroids)
-	{
-		receive(&Message(NO_MORE_ATROIDS));
-	}
-	*/
 }
 
 void GameManager::addScore(int i)

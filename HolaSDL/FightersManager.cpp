@@ -22,16 +22,20 @@ FightersManager::FightersManager(SDLGame* game, Observer* bulletsMamager):GameOb
 	physics = BasicMotionPhysics();
 	fighter->addPhysicsComponent(&physics);
 
-	//StarTrekBulletManager* illo = new StarTrekBulletManager(game);
 	gunComp1_ = new GunInputComponent(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 5, 3);
-	//gunComp1_ = new GunInputComponent(illo, SDLK_SPACE, 5, 3);
 	fighter->addInputComponent(gunComp1_);
-	gunComp2_ = new GunInputComponent(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 1000, 3);
-	//gunComp2_ = new GunInputComponent(illo, SDLK_SPACE, 1000, 3);
+	badge1_ = new GunInputComponent(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 1000, 3);
+	badge2_ = new GunInputComponent(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 5, 3);
+	badge3_ = new SixWaysGunInput(static_cast<BulletsManager*>(bulletsMamager), SDLK_SPACE, 5, 3);
+
 	gunComp1_->registerObserver(bulletsMamager);
-	gunComp2_->registerObserver(bulletsMamager);
+	badge1_->registerObserver(bulletsMamager);
+	badge2_->registerObserver(bulletsMamager);
+	badge3_->registerObserver(bulletsMamager);
 	gunComp1_->registerObserver(sound);
-	gunComp2_->registerObserver(sound);
+	badge1_->registerObserver(sound);
+	badge2_->registerObserver(sound);
+	badge3_->registerObserver(sound);
 }
 
 
@@ -49,6 +53,8 @@ void FightersManager::update(Uint32 time)
 	if (fighter->isActive()) {
 		fighter->update(time);
 	}
+	fighter->badgeType = badgeType;
+	fighter->badgeOn = badgeOn;
 }
 void FightersManager::render(Uint32 time)
 {
@@ -70,24 +76,50 @@ void FightersManager::receive(Message* msg) {
 		fighter->setPosition(Vector2D(game_->getWindowWidth() / 2, game_->getWindowHeight() / 2));
 		fighter->setDirection(Vector2D(0, -1));
 		fighter->setVelocity(Vector2D(0, 0));
+		badgeType = 0;
 			break;
 	case ROUND_OVER:
 		fighter->setActive(false);
+		badgeType = 0;
 			break;
 	case BADGE_ON:
+		badgeOn = true;
+ 		badgeType++;
+		if (badgeType > maxBadges) badgeType = 1;
 		fighter->delInputComponent(gunComp1_);
-		fighter->delInputComponent(gunComp2_);
+		fighter->delInputComponent(badge1_);
+		fighter->delInputComponent(badge2_);
+		fighter->delInputComponent(badge3_);
 		fighter->delRenderComponent(&badgeRenderer_);
-		fighter->addInputComponent(gunComp2_);
+
+		if (badgeType == 1)
+		{
+			badgeRenderer_.changeTexture("images/badge.png");
+			fighter->addInputComponent(badge1_);
+		}
+		else if (badgeType == 2)
+		{
+			badgeRenderer_.changeTexture("images/badge2.png");
+			fighter->addInputComponent(badge2_);
+		}
+		else if (badgeType == 3)
+		{
+			badgeRenderer_.changeTexture("images/badge3.png");
+			fighter->addInputComponent(badge3_);
+		}
+
+
 		fighter->addRenderComponent(&badgeRenderer_);
-		//fighter->addRenderComponent(badgeRenderer);
 			break;
 	case BADGE_OFF:
-		fighter->delInputComponent(gunComp2_);
+		badgeOn = false;
 		fighter->delInputComponent(gunComp1_);
+		fighter->delInputComponent(badge1_);
+		fighter->delInputComponent(badge2_);
+		fighter->delInputComponent(badge3_);
+
 		fighter->delRenderComponent(&badgeRenderer_);
 		fighter->addInputComponent(gunComp1_);
-		//fighter->delRenderComponent(badgeRenderer);
 			break;
 	}
 
